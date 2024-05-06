@@ -1,0 +1,11 @@
+select * from customer_booking cb 
+
+/*dependence on the passengers length of stay and their needness of extra baggage and amount of passengers*/
+
+select 
+	length_of_stay 
+	,sum(wants_extra_baggage) 
+	,sum(num_passengers)
+from customer_booking cb 
+group by 1
+order by 1
