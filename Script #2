@@ -1,0 +1,11 @@
+select * from customer_booking cb 
+
+/*amount of passegeners and their preffered booking channel*/
+
+
+select 
+	sales_channel
+	,sum(num_passengers) 
+from customer_booking cb 
+group by 1
+order by 2
