@@ -1,0 +1,16 @@
+select * from customer_booking cb 
+
+/*crowd during the week avg and sum*/
+
+
+select 
+	avg(num_passengers)
+	,flight_day 
+from customer_booking cb 
+group by 2
+
+select 
+	sum(num_passengers)
+	,flight_day 
+from customer_booking cb 
+group by 2
