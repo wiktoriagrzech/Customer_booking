@@ -1,0 +1,23 @@
+alter table newtable_1 rename to customer_booking 
+
+select * from customer_booking 
+
+/*numbers of passengers from different coutries*/
+
+
+select 
+	sum(num_passengers)
+	,booking_origin
+from customer_booking cb 
+group by 2 
+order by 1 desc
+limit 6
+
+
+select 
+	sum(num_passengers)
+	,booking_origin
+from customer_booking cb 
+group by 2 
+order by 1 asc
+limit 47
