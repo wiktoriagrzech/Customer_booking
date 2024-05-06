@@ -1,0 +1,12 @@
+select * from customer_booking cb 
+
+/*booking_origin and amount of passenger reserved via sales channel*/
+
+select 
+	booking_origin
+	,sum(num_passengers)
+	,sales_channel 
+from customer_booking cb 
+group by 1, 3
+order by 1, 3
+
