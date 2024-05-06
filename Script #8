@@ -1,0 +1,125 @@
+/*sum of passengers for individual flight lengths each day*/
+
+create table flight_in_week as
+select 
+	flight_duration 
+	,sum(num_passengers)
+	,flight_day 
+from customer_booking cb 
+where 
+	flight_duration in 
+		(
+		select flight_duration 
+		from customer_booking cb
+		having flight_duration between 4 and 5
+		)
+or
+	flight_duration in 
+		(
+		select flight_duration 
+		from customer_booking cb
+		having flight_duration between 5.01 and 6
+		)
+or
+	flight_duration in 
+		(
+		select flight_duration 
+		from customer_booking cb
+		having flight_duration between 6.01 and 7
+		)
+or
+	flight_duration in 
+		(
+		select flight_duration 
+		from customer_booking cb
+		having flight_duration between 7.01 and 8
+		)
+or
+	flight_duration in 
+		(
+		select flight_duration 
+		from customer_booking cb
+		having flight_duration between 8.01 and 9
+		)
+or
+	flight_duration in 
+		(
+		select flight_duration 
+		from customer_booking cb
+		having flight_duration between 9.01 and 10
+		)
+group by 1, 3
+order by 1 
+
+select * from flight_in_week
+
+create table monday as
+select 
+	`sum(num_passengers)`
+	,flight_duration 
+from flight_in_week
+where flight_day = 'Mon'
+order by 2
+
+select * from monday
+
+create table tuesday as
+select 
+	`sum(num_passengers)`
+	,flight_duration 
+from flight_in_week
+where flight_day = 'Tue'
+order by 2
+
+select * from tuesday 
+
+create table wednesday as
+select 
+	`sum(num_passengers)`
+	,flight_duration
+from flight_in_week
+where flight_day = 'Wed'
+order by 2
+
+select * from wednesday
+
+create table thursday as
+select 
+	`sum(num_passengers)`
+	,flight_duration
+from flight_in_week
+where flight_day = 'Thu'
+order by 2
+
+select * from thursday
+
+create table friday as
+select 
+	`sum(num_passengers)`
+	,flight_duration
+from flight_in_week
+where flight_day = 'Fri'
+order by 2
+
+select * from friday
+
+create table saturday as
+select 
+	`sum(num_passengers)`
+	,flight_duration
+from flight_in_week
+where flight_day = 'Sat'
+order by 2
+
+select * from saturday
+
+create table sunday as
+select 
+	`sum(num_passengers)`
+	,flight_duration 
+from flight_in_week
+where flight_day = 'Sun'
+order by 2
+
+select * from sunday
+
