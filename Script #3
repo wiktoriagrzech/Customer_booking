@@ -1,0 +1,10 @@
+select * from customer_booking cb 
+
+/*amount of passengers and their trip type*/
+
+
+select 
+	sum(num_passengers)
+	,trip_type 
+from customer_booking cb 
+group by 2
