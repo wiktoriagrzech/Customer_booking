@@ -12,3 +12,5 @@ Script #8: sum of passengers for individual flight lengths each day
 Script #9: trip_type, purchase_lead, length_of_stay
 Script #10: booking_origin and amount of passenger reserved via sales channel
 Script #11: dependence on the passengers length of stay and their needness of extra baggage and amount of passengers
+
+Data source:https://www.kaggle.com/datasets/anandshaw2001/airlines-booking-csv/data
