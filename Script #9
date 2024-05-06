@@ -1,0 +1,10 @@
+select * from customer_booking cb 
+
+/*trip_type, purchase_lead, length_of_stay*/
+
+select 
+	trip_type 
+	,round(avg(purchase_lead),0)
+	,round(avg(length_of_stay),0)
+from customer_booking cb 
+group by 1
