@@ -1,0 +1,54 @@
+select * from customer_booking cb 
+
+/*how many people wanted to get flight meals and preferred seat according to flight duration*/
+
+select 
+	flight_duration 
+	,sum(num_passengers)
+	,sum(wants_in_flight_meals)
+	,sum(wants_preferred_seat)
+from customer_booking cb 
+where 
+	flight_duration in 
+		(
+		select flight_duration 
+		from customer_booking cb
+		having flight_duration between 4 and 5
+		)
+or
+	flight_duration in 
+		(
+		select flight_duration 
+		from customer_booking cb
+		having flight_duration between 5.01 and 6
+		)
+or
+	flight_duration in 
+		(
+		select flight_duration 
+		from customer_booking cb
+		having flight_duration between 6.01 and 7
+		)
+or
+	flight_duration in 
+		(
+		select flight_duration 
+		from customer_booking cb
+		having flight_duration between 7.01 and 8
+		)
+or
+	flight_duration in 
+		(
+		select flight_duration 
+		from customer_booking cb
+		having flight_duration between 8.01 and 9
+		)
+or
+	flight_duration in 
+		(
+		select flight_duration 
+		from customer_booking cb
+		having flight_duration between 9.01 and 10
+		)
+group by 1
+order by 1 
